@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+}
+
+body, html {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #6F7D8C;
+}
+
+#wrapper {
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	border: 1px solid green;
+	height: 100%;
+}
+
+#content-box {
+	width: 50%;
+	height: 100%;
+}
+
+.post {
+	font-family: Consolas;
+
+	border: 1px solid #ccc;
+	border-radius: 5px;
+
+	width: 94%;
+	
+	margin: 50px 10px 50px 10px;
+	padding: 10px;
+
+	background-color: #fff;	
+}
