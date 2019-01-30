@@ -6,20 +6,15 @@ body, html {
 	padding: 0;
 	margin: 0;
 	height: 100%;
-	background-color: #6F7D8C;
+	background-color: #D8E4FF;
 }
 
 #wrapper {
-	display: flex; 
-	justify-content: center;
-	align-items: center;
-	flex-flow: column;
-	border: 1px solid green;
 	height: 100%;
 }
 
 #content-box {
-	width: 50%;
+	width: 100%;
 	height: 100%;
 }
 
@@ -31,7 +26,7 @@ body, html {
 
 	width: 94%;
 	
-	margin: 50px 10px 50px 10px;
+	margin: 5% auto;
 	padding: 10px;
 
 	background-color: #fff;	
