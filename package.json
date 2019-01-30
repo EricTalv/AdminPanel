@@ -1,0 +1,22 @@
+{
+  "name": "adminpanel",
+  "version": "1.0.0",
+  "description": "Check Github",
+  "main": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001bserver.js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricTalv/AdminPanel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricTalv/AdminPanel/issues"
+  },
+  "homepage": "https://github.com/EricTalv/AdminPanel#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
