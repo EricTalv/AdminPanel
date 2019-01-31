@@ -6,7 +6,7 @@ var app = express();
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'admin',
+    password: '',
     database: 'sampleDB'
 });
 
@@ -23,7 +23,7 @@ connection.connect(function(error) {
 //Send data to app
 app.get('/', function(req, resp) {
     //Send a MYSQL Query to ->sampleDataBase
-    connection.query("SELECT * FROM sampleDB", function(error, rows, fields) {
+    connection.query("SELECT * FROM sampleTable", function(error, rows, fields) {
         //Callback when query has been done
         //Check for query errors
         if (!!error) {
@@ -34,4 +34,6 @@ app.get('/', function(req, resp) {
     });
 });
 
-app.listen(3000);
+app.listen(1337, function(){
+    console.log('App Listening on Port:1337');
+});
