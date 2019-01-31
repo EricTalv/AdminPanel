@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
             console.log(rows);
         };
 
-        res.send("Hello" + rows[0]);
+        res.send("Hello" + rows[0].Name);
     });
 });
 
