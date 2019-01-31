@@ -20,7 +20,7 @@ connection.connect(function(error) {
     };
 });
 
-//Send data to app
+//Send request to server <?>
 app.get('/', function(req, resp) {
     //Send a MYSQL Query to ->sampleDataBase
     connection.query("SELECT * FROM sampleTable", function(error, rows, fields) {
@@ -36,6 +36,7 @@ app.get('/', function(req, resp) {
     });
 });
 
-app.listen(1337, function(){
-    console.log('App Listening on Port:1337');
+//Start listening 
+app.listen(3000, function(){
+    console.log('App Listening on Port:3000');
 });
