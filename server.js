@@ -21,7 +21,7 @@ connection.connect(function(error) {
 });
 
 //Send request to server <?>
-app.get('/', function(req, resp) {
+app.get('/', function(req, res) {
     //Send a MYSQL Query to ->sampleDataBase
     connection.query("SELECT * FROM sampleTable", function(error, rows, fields) {
         //Callback when query has been done
@@ -31,8 +31,9 @@ app.get('/', function(req, resp) {
         } else {
             console.log('Query Was Succesful \n');
             console.log(rows);
-            console.log(fields);
         };
+
+        res.send("Hello" + rows[0]);
     });
 });
 
