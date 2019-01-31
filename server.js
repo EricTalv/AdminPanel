@@ -29,7 +29,9 @@ app.get('/', function(req, resp) {
         if (!!error) {
             console.log('[QUERY ERROR] ' + error);
         } else {
-            console.log('Query Was Succesful');
+            console.log('Query Was Succesful \n');
+            console.log(rows);
+            console.log(fields);
         };
     });
 });
