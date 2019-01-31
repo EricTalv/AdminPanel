@@ -14,7 +14,7 @@ var connection = mysql.createConnection({
 connection.connect(function(error) {
     //Check for connection issues
     if (!!error) {
-        console.log('Error: ' + error);
+        console.log('[CONNECTION ERROR] ' + error);
     } else {
         console.log('Connection established.');
     };
@@ -27,7 +27,7 @@ app.get('/', function(req, resp) {
         //Callback when query has been done
         //Check for query errors
         if (!!error) {
-            console.log('Error: ' + error);
+            console.log('[QUERY ERROR] ' + error);
         } else {
             console.log('Query Was Succesful');
         };
