@@ -16,25 +16,11 @@ app.get('/', function(req, res) {
 //Use static-folder for static files
 app.use('/static/', express.static('./static/.'));
 
-//Login check 
-function requireLogin(req,res,next) {
-    //Check if user session is logged in
-    if (req.session.loggedIn) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-}
-
-//Apply the requireLogin middleware to
-//all admin routes
-app.all('/admin/*', requireLogin, function (req,res,next) {
-    next();
+//Upon entering /admin route
+app.get('/admin', function (req, res) {
+    res.sendFile(__dirname + '/view/index.html');        
 });
 
-app.get('/admin', function (req, res) {
-    res.send('Admin Granted');
-})
 
 //Start listening 
 app.listen(3000, function(){
@@ -81,7 +67,21 @@ CLIENT Panel ->
 
  So the PSEUDO TO DO Code>
 
- 1.
+ 1. Entering /admin route
+    1.1. Run keyAuth middleware
+     1.1.1. keyAuth middleware should check for an admin token
+      1.1.1.1. IF admin token doesnt exist its an automatic 
+                un-authorization
+     1.1.2. if kA middleware finds admin token it has to 
+     compare it to the admin_database, admin_token field.
+     1.1.2. if its correct it must also check session
+     key and compare it to admin_database session_key field.
+      1.1.2.1 if session_key is false go to un-authorized
+     1.1.3 if both admin_Token and session_key are correct
+     redirect client to /admin access granted.
+
+
+ 2.
 
 SERVER - Check if user has logged in
       -If not redirect to login page
