@@ -40,3 +40,30 @@ app.get('/admin', function (req, res) {
 app.listen(3000, function(){
     console.log('App Listening on Port:3000');
 });
+
+
+
+/*
+
+>--Admin authentication Architecture--<
+
+
+CLIENT Panel ->
+-> Request ADMIN Panel -> /admin
+->Server needs to check CLIENT 
+ session if login has occured
+
+ How does checking work?
+
+SERVER - Check if user has logged in
+      -If not redirect to login page
+      -If is redirect to admin page
+
+CLIENT Panel - Regular Index Page 
+ADMIN Panel - Client panel admistrator 
+
+DATABASE - Store whole Website data
+        - Admin Auth Data
+        - Admistrative CRUD functions for Client
+
+*\
