@@ -54,6 +54,34 @@ CLIENT Panel ->
  session if login has occured
 
  How does checking work?
+ 
+ When the client goes to /login
+ and logs in, the data is then checked
+ in the database.
+ IF username&&password are correct 
+ we need to assign that
+ specific session an admin token 
+ which will be stored to the database under a 
+ temp_data field
+ as a randomly generated hash-key along side
+ the session ID 
+ After that we can redirect to the /admin route
+
+ On the admin route.
+ When we are trying to access the admin panel
+ the admin panel should check session data and check if it
+ has an admin token.
+ If there exists an admin token we can compare it in the
+ database and if all corresponds we can go forward to the
+ admin panel.
+
+ When the admin pane invokes a logout then
+ we destroy the admin toke from the database and 
+ remove any admin tokens from the session.  
+
+ So the PSEUDO TO DO Code>
+
+ 1.
 
 SERVER - Check if user has logged in
       -If not redirect to login page
@@ -63,7 +91,10 @@ CLIENT Panel - Regular Index Page
 ADMIN Panel - Client panel admistrator 
 
 DATABASE - Store whole Website data
-        - Admin Auth Data
+        - Admin Auth Data USR/PW
         - Admistrative CRUD functions for Client
+        
+HASH ADMIN DATA IN DB
+
 
 *\
