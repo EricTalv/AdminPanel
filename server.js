@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
     database: 'sampleDB'
 });
 
-//Establish connection
+//Establish connection to MySQL
 connection.connect(function(error) {
     //Check for connection issues
     if (!!error) {
@@ -20,22 +20,14 @@ connection.connect(function(error) {
     };
 });
 
-//Send request to server <?>
+//Send a GET-> request to server
+//To retrieve data from source
 app.get('/', function(req, res) {
-    //Send a MYSQL Query to ->sampleDataBase
-    connection.query("SELECT * FROM sampleTable", function(error, rows, fields) {
-        //Callback when query has been done
-        //Check for query errors
-        if (!!error) {
-            console.log('[QUERY ERROR] ' + error);
-        } else {
-            console.log('Query Was Succesful \n');
-            console.log(rows);
-        };
-
-        res.send("Hello" + rows[0].Name);
-    });
+    res.sendFile(__dirname + '/index.html');    
 });
+
+//Use static-folder for static files
+app.use('/static/', express.static('./static/.'));
 
 //Start listening 
 app.listen(3000, function(){
