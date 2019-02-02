@@ -1,26 +1,17 @@
 var express = require('express');
 var mysql = require('mysql');
+var path = require('path');
 var app = express();
 
-//Setup MySQL DataBase connection properties 
+// route to home-page
+var index = require('./routes/index');
 
-//Establish connection to MySQL
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
-//Send a GET-> request to server
-//To retrieve data from source 
-app.get('/', function(req, res) {
-    //give client panel path-> Index.html
-    res.sendFile(__dirname + '/view/index.html');    
-});
-
-//Use static-folder for static files
-app.use('/static/', express.static('./static/.'));
-
-//Upon entering /admin route
-app.get('/admin', function (req, res) {
-    // res.sendFile(__dirname + '/admin/admin.html');       
-     keyAuth(req, res);
-});
+// give static files
+app.use(express.static(path.join(__dirname, 'static')));
 
 //Start listening 
 app.listen(3000, function(){
@@ -46,7 +37,7 @@ function keyAuth(req,res,next) {
     //1.1.1. keyAuth middleware should check for an admin token
     //We need to retrieve client side data
 
-    console.log(req.session);
+    console.log(req.session, req.users);
 }
 
 
