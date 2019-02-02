@@ -17,6 +17,13 @@ app.locals.basedir = path.join(__dirname, 'static');
 // Use index
 app.use('/', index);
 
+// POST route for login
+app.post('/login',
+  passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+);
+
 //Start listening 
 app.listen(3000, function(){
     console.log('App Listening on Port:3000');
