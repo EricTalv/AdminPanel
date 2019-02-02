@@ -3,6 +3,9 @@ var mysql = require('mysql');
 var path = require('path');
 var app = express();
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy; /* this should be after passport*/
+
 // route to home-page
 var index = require('./routes/index');
 
