@@ -4,6 +4,8 @@ var router = express.Router();
 // GET The home-page
 router.get('/', function (req, res, next) {
   res.render('index', {
-    title: 'Express'
+    title: 'Express',
+    message: 'UWU whats this'
   });
 });
+module.exports = router;

@@ -11,7 +11,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // give static files
-app.use(express.static(path.join(__dirname, 'static')));
+//app.use(express.static(path.join(__dirname, 'static')));
+app.locals.basedir = path.join(__dirname, 'static');
+
+// Use index
+app.use('/', index);
 
 //Start listening 
 app.listen(3000, function(){
