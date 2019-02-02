@@ -19,7 +19,7 @@ app.use('/static/', express.static('./static/.'));
 //Upon entering /admin route
 app.get('/admin', function (req, res) {
     // res.sendFile(__dirname + '/admin/admin.html');       
-     logger(req, res);
+     keyAuth(req, res);
 });
 
 //Start listening 
@@ -43,7 +43,10 @@ function keyAuth(req,res,next) {
      redirect client to /admin access granted.
     */
 
-    
+    //1.1.1. keyAuth middleware should check for an admin token
+    //We need to retrieve client side data
+
+    console.log(req.session);
 }
 
 
