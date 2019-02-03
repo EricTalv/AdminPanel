@@ -11,14 +11,17 @@ var mSequelize = require('sequelize'); // Sequelize as DB ORM
 var lodash = require('lodash'); // LIB for better arrays and more
 
 // connect sequelize to DB
-var sequelize = new mSequelize('sampleDB', 'root', null); //DB USR PW
+var sequelize = new mSequelize('sampleDB', 'root', null, {
+		host: 'localhost',
+		dialect: 'mysql'	
+}); //Set DB properties
 
 // DB
 var database = {};
 
 // 
 fs
- .readdirSync(__dirname)
+ .readdirSync(__dirname) // Asyncronously reads dir
  .filter(function(file) {
  	return (file.indexOf('.') !== 0) && (file !== 'index.js'); 
  })
@@ -30,7 +33,7 @@ fs
 module.exports = lodash.extend({
 	sequelize: sequelize,
 	sequelize: mSequelize
-});
+}, database);
 
 
 

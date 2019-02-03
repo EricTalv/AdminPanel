@@ -1,4 +1,4 @@
-// Require modules
+/// Require modules
 var express = require('express');
 var path = require('path');
 var http = require('http');
@@ -8,8 +8,9 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-// Routes and Configs
+/// Routes and Configs
 var index = require('./routes/index');
+var database = require('./models');
 // var user = require('./routes/user');
 // var home = require('./routes/home');
 // var passportConfig = require('./config/passport');
@@ -59,6 +60,21 @@ app.use(passport.initialize());
 // Route to homepage 
 app.use('/', index);
 
+// Create database Tables
+database 
+        .sequelize
+        .sync()
+        .complete(function (error) {
+            if (error) {
+                  console.error(error.stack);
+                  res.status(500).send('[500]Something went wrong!');  
+            } else {
+              http.createServer(app).listen(app.get('port'), function() {
+                console.log('Listening: ' + app.get('port'));
+              });
+            }
+        });
+
 // Error Handeling
 app.use(function (error,req,res,next) {
     console.error(error.stack);
@@ -66,10 +82,10 @@ app.use(function (error,req,res,next) {
 });
 
 /* ~Open Server ports~ */
-// Start listening 
-app.listen(port, function(error){
-    // Error Check 
-    if (!error) {
-      console.log('App Listening on Port: %s', port);
-    } else { console.log(error); }
-});
+// // Start listening 
+// app.listen(port, function(error){
+//     // Error Check 
+//     if (!error) {
+//       console.log('App Listening on Port: %s', port);
+//     } else { console.log(error); }
+// });
