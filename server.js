@@ -1,7 +1,7 @@
 /// Require modules
 var express = require('express');
 var path = require('path');
-var http = require('http');
+//var http = require('http');
 var mysql = require('mysql');
 var passport = require('passport');
 var bodyParser = require('body-parser');
@@ -9,18 +9,21 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 /// Routes and Configs
-var index = require('./routes/index');
-var database = require('./models');
+// var index = require('./routes/index');
+// var database = require('./models');
 // var user = require('./routes/user');
 // var home = require('./routes/home');
-// var passportConfig = require('./config/passport');
 // var application = require('./routes/application');
+// var passportConfig = require('./config/passport');
 
 // Set app Listening port 
 var port = process.env.PORT || 3000;
 
 // Initialize exrpess
 var app = express();
+
+// DB Config
+// var db = require('./config/keys').
 
 /* ~Static Files~ */
 // store static files (css, etc.)
@@ -35,11 +38,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 /* ~Parsers~ */ 
 // Use urlencoded to deal with incoming Requests as Strings/arrays
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 // Parse incoming http-form data
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 // Parse cookie data
-app.use(cookieParser());
+// app.use(cookieParser());
 
 /* ~Passport And Session Properties~ */
 // Session 
@@ -54,8 +57,12 @@ app.use(session({
    cookie: { secure: false } 
 }));
 
+// store session data
+
+
+
 // Initialize Passport
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 // Route to homepage 
 app.use('/', index);
