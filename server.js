@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 // Routes and Configs
-var routes = require('./routes');
+var index = require('./routes/index');
 // var user = require('./routes/user');
 // var home = require('./routes/home');
 // var passportConfig = require('./config/passport');
@@ -24,7 +24,7 @@ var app = express();
 /* ~Static Files~ */
 // store static files (css, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
-//app.locals.basedir = path.join(__dirname, 'poublic');
+//app.locals.basedir = path.join(__dirname, 'public');
 
 /* ~View Engine~ */
 // view engine setup
@@ -56,15 +56,13 @@ app.use(session({
 // Initialize Passport
 app.use(passport.initialize());
 
-// Set homepage 
-app.get('/', function (req, res) {
-  res.send('test');
-});
+// Route to homepage 
+app.use('/', index);
 
 // Error Handeling
 app.use(function (error,req,res,next) {
   if (error) {
-      console.error(err.stack);
+      console.error(error.stack);
       res.status(500).send('[500]Something went wrong!');
     }
 });
