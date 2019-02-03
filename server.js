@@ -7,19 +7,16 @@ var passport = require('passport');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
+var morgan = require('morgan');
 
 /// Routes and Configs
-// var index = require('./routes/index');
+ var index = require('./routes/index');
 // var database = require('./models');
 // var user = require('./routes/user');
 // var home = require('./routes/home');
 // var application = require('./routes/application');
-var {
-    userResponse,
-    validateUser,
-    secret
-} = require('./config/config');
-var passportConfig = require('./config/passport');
+require('./config/passport')(passport) // pass passport for configuration;
 
 // Set app Listening port 
 var port = process.env.PORT || 3000;
@@ -40,6 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'pug');
 // Set view path
 app.set('views', path.join(__dirname, 'views'));
+
+
+// Set console logger
+app.use(morgan('dev')); //log every request to the console
 
 /* ~Parsers~ */
 // Use urlencoded to deal with incoming Requests as Strings/arrays
@@ -72,8 +73,6 @@ app.use(session({
 // Initialize Passport
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 // Route to homepage 
 app.use('/', index);
