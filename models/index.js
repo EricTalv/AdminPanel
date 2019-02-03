@@ -20,5 +20,21 @@ var database = {};
 fs
  .readdirSync(__dirname)
  .filter(function(file) {
- 	return (file.indexOf(.) !== 0) && (file !== 'index.js'); 
- });
+ 	return (file.indexOf('.') !== 0) && (file !== 'index.js'); 
+ })
+ 	.forEach(function (file) {
+ 		var model = sequelize.import(path.join(__dirname, file));
+ 		database[model.name] = model;
+ 	});
+
+module.exports = lodash.extend({
+	sequelize: sequelize,
+	sequelize: mSequelize
+});
+
+
+
+
+
+
+
