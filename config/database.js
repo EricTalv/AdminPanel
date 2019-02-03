@@ -4,6 +4,6 @@ module.exports = {
         'user': 'root',
         'password': ''
     },
-	'database': 'my_schema',
-    'users_table': 'admin_auth'
+	'database': 'admin_auth',
+    'users_table': 'admin_data'
 };

@@ -7,18 +7,17 @@ Passport and database connections
 /* ~Require Modules~*/
 var LocalStrategy = require('passport-local').Strategy; // Load passport strategy
 var mysql = require('mysql');
+var bcrypt = require('bcrypt-nodejs');
+var dbconfig = require('./config/database');
 
 /* ~MySQL Properties~ */
 //Create connection with MYSQL
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: ''
-});
+var connection = mysql.createConnection(dbconfig.connection);
 
 // Set database
-connection.query('USE admin_auth');
+connection.query('USE' + dbconfig.database);
 
+// Expose to our server
 module.exports = function(passport) {
     /* Passport Session Setuo */
 
