@@ -13,7 +13,7 @@ module.exports = function(app, passport) {
         res.render('login', {
             title: 'Login',
             message: 'Login Page',
-            flash_message: { req.flash('loginMessage')}
+            flash_message:  req.flash('loginMessage')
         });
     });
 
