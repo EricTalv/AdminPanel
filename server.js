@@ -57,7 +57,9 @@ app.use(session({
 app.use(passport.initialize());
 
 // Set homepage 
-app.get('/', routes.index);
+app.get('/', function (req, res) {
+  res.send('test');
+});
 
 // Error Handeling
 app.use(function (error,req,res,next) {
