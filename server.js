@@ -38,7 +38,6 @@ app.set('view engine', 'pug');
 // Set view path
 app.set('views', path.join(__dirname, 'views'));
 
-
 // Set console logger
 app.use(morgan('dev')); //log every request to the console
 
@@ -74,16 +73,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// flash messages
+app.use(flash());
+
 // Route to homepage 
-app.use('/', index);
+// app.use('/', index);
 
-//
-app.post('/login', passport.authenticate('local'), userResponse);
-
-app.get('/logout', (req, res) => {
-  req.logout();
-  return res.json({status: 'success' });
-});
+require('./routes/route')(server, passport); // pass passport for configuration
 
 // Error Handeling
 app.use(function(error, req, res, next) {
