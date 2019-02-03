@@ -1,35 +1,37 @@
+// Require modules
 var express = require('express');
-var mysql = require('mysql');
 var path = require('path');
+var http = require('http');
+var mysql = require('mysql');
+var passport = require('passport');
+
+// Routes and Configs
+var routes = require('./routes');
+var user = require('./routes/user');
+var home = require('./routes/home');
+var passportConfig = require('./config/passport');
+var application = require('./routes/application');
+
+// Set app Listening port 
+var port = process.env.PORT || 3000;
+
+// Initialize exrpess
 var app = express();
 
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy; /* this should be after passport*/
-
-// route to home-page
-var index = require('./routes/index');
+// store static files (css, etc.)
+app.use(express.static(path.join(__dirname, 'static')));
+//app.locals.basedir = path.join(__dirname, 'static');
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-// give static files
-//app.use(express.static(path.join(__dirname, 'static')));
-app.locals.basedir = path.join(__dirname, 'static');
-
-// Use index
-app.use('/', index);
-
-// POST route for login
-app.post('/login',
-  passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-);
+// Set view path
+app.set('views', path.join(__dirname, 'views'));
 
 //Start listening 
-app.listen(3000, function(){
-    console.log('App Listening on Port:3000');
+app.listen(port, function(error){
+    if (!error) {
+      console.log('App Listening on Port: %s', port);
+    } else { console.log(error); }
 });
 
 function keyAuth(req,res,next) {
