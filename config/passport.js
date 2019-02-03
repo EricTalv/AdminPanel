@@ -33,7 +33,9 @@ module.exports = function(passport) {
             });
     });
 
-    passport.use('local', new LocalStrategy(function(req, username, password, done) {
+    passport.use('local', new LocalStrategy({
+    	passReqToCallback: true 	
+    },function(req, username, password, done) {
         connection.query("SELECT * FROM `admin_data` WHERE" +
             " `username` = '" + username + "'",
             function(err, rows) {
