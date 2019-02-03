@@ -5,6 +5,7 @@ var http = require('http');
 var mysql = require('mysql');
 var passport = require('passport');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 // Routes and Configs
 var routes = require('./routes');
@@ -27,6 +28,10 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.set('view engine', 'pug');
 // Set view path
 app.set('views', path.join(__dirname, 'views'));
+
+// Use urlencoded to deal with incoming Requests as Strings/arrays
+app.use(express.urlencoded());
+
 
 // Start listening 
 app.listen(port, function(error){
