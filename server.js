@@ -52,18 +52,20 @@ app.use(session({
   // Cookie should be set true on HTTPS
    cookie: { secure: false } 
 }));
+
 // Initialize Passport
 app.use(passport.initialize());
-// Create a Router object <-???
-app.use(app.router);
-
-// Error handeling
-if ('development' === app.get('env')) {
-    app.use(express.errorHandler());
-};
 
 // Set homepage 
 app.get('/', routes.index);
+
+// Error Handeling
+app.use(function (error,req,res,next) {
+  if (error) {
+      console.error(err.stack);
+      res.status(500).send('[500]Something went wrong!');
+    }
+});
 
 /* ~Open Server ports~ */
 // Start listening 
