@@ -77,7 +77,7 @@ app.use(flash());
 // Route to homepage 
 // app.use('/', index);
 
-require('./routes/route')(app, passport); // pass passport for configuration
+require('./routes/index')(app, passport); // pass passport for configuration
 
 // Error Handeling
 app.use(function(error, req, res, next) {
