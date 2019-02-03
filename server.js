@@ -31,6 +31,12 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Use urlencoded to deal with incoming Requests as Strings/arrays
 app.use(express.urlencoded());
+// Parse incoming http-form data
+app.use(express.bodyParser());
+// Parse cookie data
+app.use(express.cookieParser());
+
+
 
 
 // Start listening 
