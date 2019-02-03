@@ -61,10 +61,8 @@ app.use('/', index);
 
 // Error Handeling
 app.use(function (error,req,res,next) {
-  if (error) {
-      console.error(error.stack);
-      res.status(500).send('[500]Something went wrong!');
-    }
+    console.error(error.stack);
+    res.status(500).send('[500]Something went wrong!');  
 });
 
 /* ~Open Server ports~ */
