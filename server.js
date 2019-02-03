@@ -6,6 +6,7 @@ var mysql = require('mysql');
 var passport = require('passport');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 // Routes and Configs
 var routes = require('./routes');
