@@ -26,33 +26,23 @@ module.exports = function(app, passport) {
     function (req, res) {
      	console.log('Hi');
      	res.redirect('/');
-     } 
+     });
 
+    app.get('/success', isLoggedIn, function (req, res) {
+    	res.render('/success', {
+    		title: 'Success',
+    		message: 'Success page'
+    	});
+    });
 
-
-    );
+    app.get('/logout', function (req, res) {
+    	req.logout();
+    	res.redirect('/');
+    });
 };
 
-
-
-
-// var express = require('express');
-// var router = express.Router();
-
-// // GET The home-page
-// router.get('/', function (req, res, next) {
-//   res.render('index', {
-//     title: 'Index',
-//     message: 'Index Page'
-//   });
-// });
-
-// // GET The login-page
-// router.get('/login', function (req, res, next) {
-//   res.render('login', {
-//     title: 'Login',
-//     message: 'Login Page'
-//   });
-// });
-
-// module.exports = router;
+// route middleware
+function isLoggedIn(req, res, next) {
+	if (req.isAuthenticated()) { return next(); }
+	res.redirect('/');
+}
