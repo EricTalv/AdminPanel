@@ -63,7 +63,7 @@ app.use('/', index);
 // Create database Tables
 database 
         .sequelize
-        .sync()
+        //.sync()
         .complete(function (error) {
             if (error) {
                   console.error(error.stack);
