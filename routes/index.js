@@ -7,6 +7,7 @@ router.get('/', function (req, res, next) {
     title: 'Index',
     message: 'Index Page'
   });
+
 });
 
 // GET The login-page
@@ -16,5 +17,4 @@ router.get('/login', function (req, res, next) {
     message: 'Login Page'
   });
 });
-
 module.exports = router;

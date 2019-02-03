@@ -10,10 +10,10 @@ var session = require('express-session');
 
 // Routes and Configs
 var routes = require('./routes');
-var user = require('./routes/user');
-var home = require('./routes/home');
-var passportConfig = require('./config/passport');
-var application = require('./routes/application');
+// var user = require('./routes/user');
+// var home = require('./routes/home');
+// var passportConfig = require('./config/passport');
+// var application = require('./routes/application');
 
 // Set app Listening port 
 var port = process.env.PORT || 3000;
@@ -34,17 +34,26 @@ app.set('views', path.join(__dirname, 'views'));
 
 /* ~Parsers~ */ 
 // Use urlencoded to deal with incoming Requests as Strings/arrays
-app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
 // Parse incoming http-form data
-app.use(express.bodyParser());
+app.use(bodyParser.json());
 // Parse cookie data
-app.use(express.cookieParser());
+app.use(cookieParser());
 
 /* ~Passport And Session Properties~ */
-// Session secret key for encrypting cookies
-app.use(express.session({ secret: 'withaspiritsoundsystem'} ));
+// Session 
+app.use(session({
+  // secret key for encrypting cookies
+   secret: 'withaspiritsoundsystem',
+  // storing sessions
+   resave: false,
+  // forces UnInitializedSessions to be saved in store 
+   saveUninitialized: true,
+  // Cookie should be set true on HTTPS
+   cookie: { secure: false } 
+}));
 // Initialize Passport
-app.use(passport.Initialize());
+app.use(passport.initialize());
 // Create a Router object <-???
 app.use(app.router);
 
