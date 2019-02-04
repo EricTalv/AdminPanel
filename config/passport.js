@@ -22,8 +22,7 @@ module.exports = function(passport) {
     /* Passport Session Setup */
 
     passport.serializeUser(function(user, done) {
-        //done(null, user.id);
-        console.log(null, user.id);
+        done(null, user.id);
     });
 
     passport.deserializeUser(function(id, done) {
@@ -35,10 +34,12 @@ module.exports = function(passport) {
     });
 
     passport.use('local', new LocalStrategy({
+    	usernameField: 'username',
+    	passwordField: 'password',
     	passReqToCallback: true 	
-    },function(req, username, password, done) {
-        connection.query("SELECT * FROM `admin_data` WHERE" +
-            " `username` = '" + username + "'",
+    },
+    function(req, username, password, done) {
+        connection.query("SELECT * FROM admin_data WHERE username = ?'",[username],
             function(err, rows) {
                 if (err) {
                     return done(err);
