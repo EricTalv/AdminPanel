@@ -49,7 +49,7 @@ module.exports = function(passport) {
                     return done(null, false, req.flash('loginMessage', 'Pfalse credentials'));
                 }
                //return done(null, rows[0]);
-               console.log(null, rows[0]);
+               console.log(done(null, rows[0]);
             });
     }));
 };
