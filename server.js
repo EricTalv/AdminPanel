@@ -51,7 +51,6 @@ app.use(bodyParser.json());
 // Parse cookie data
 app.use(cookieParser());
 
-
 /* ~Passport And Session Properties~ */
 // Session 
 app.use(session({

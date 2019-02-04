@@ -19,7 +19,7 @@ connection.query('USE ' + dbconfig.database);
 
 // Expose to our server
 module.exports = function(passport) {
-    /* Passport Session Setuo */
+    /* Passport Session Setup */
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -48,7 +48,8 @@ module.exports = function(passport) {
                 if (!(rows[0].password == password)) {
                     return done(null, false, req.flash('loginMessage', 'Pfalse credentials'));
                 }
-                return done(null, rows[0]);
+               //return done(null, rows[0]);
+               console.log(null, rows[0]);
             });
     }));
 };
