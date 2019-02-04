@@ -22,7 +22,8 @@ module.exports = function(passport) {
     /* Passport Session Setup */
 
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+        //done(null, user.id);
+        console.log(null, user.id);
     });
 
     passport.deserializeUser(function(id, done) {
@@ -48,8 +49,7 @@ module.exports = function(passport) {
                 if (!(rows[0].password == password)) {
                     return done(null, false, req.flash('loginMessage', 'Pfalse credentials'));
                 }
-               //return done(null, rows[0]);
-               console.log(done(null, rows[0]);
+               return done(null, rows[0]);
             });
     }));
 };
