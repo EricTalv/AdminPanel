@@ -44,7 +44,7 @@ app.use(morgan('dev')); //log every request to the console
 /* ~Parsers~ */
 // Use urlencoded to deal with incoming Requests as Strings/arrays
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 // Parse incoming http-form data
 app.use(bodyParser.json());
