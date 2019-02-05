@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
     // Process the login form
     app.post('/login', passport.authenticate('local', {
     	successRedirect: '/admin',
-    	failureRedirect: '/unauthorized',
+    	failureRedirect: '/login',
     	failureFlash: true 
     }),
     function (req, res) {
@@ -44,5 +44,5 @@ module.exports = function(app, passport) {
 // route middleware
 function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated()) { return next(); }
-	res.redirect('/');
+	res.redirect('/unauthorized');
 }
