@@ -21,14 +21,14 @@ connection.query('USE ' + dbconfig.database);
 module.exports = function(passport) {
     /* Passport Session Setup */
 
+    // serializeUser drtermines which data of the user obj should be stored to the session
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+    	// We save the user.id in the session 
+        done(null, user);
     });
 
-    passport.deserializeUser(function(id, done) {
-    	User.findById(id, function (err, user) {
-    		done(err, user);
-    	})
+    passport.deserializeUser(function(user, done) {
+    	done(null, user);
         // connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
         //     function(err, rows) {
         //         done(err, rows[0]);          

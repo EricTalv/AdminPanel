@@ -16,12 +16,7 @@ module.exports = function(app, passport) {
             flash_message:  req.flash('loginMessage')
         });
     });
-
-    // GET The UNAUTH-page
-    app.get('/unauthorized', function(req, res, next) {
-        res.render('unauthorized');
-    });
-
+    
     // Process the login form
     app.post('/login', passport.authenticate('local', {
     	successRedirect: '/admin',
