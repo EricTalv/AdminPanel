@@ -49,5 +49,5 @@ module.exports = function(app, passport) {
 // route middleware
 function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated()) { return next(); }
-	res.status(403);
+	res.status(403).json(json_response);
 }
