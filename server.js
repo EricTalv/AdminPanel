@@ -81,7 +81,7 @@ require('./routes/index')(app, passport); // pass passport for configuration
 // Error Handeling
 app.use(function(error, req, res, next) {
     console.error(error.stack);
-    res.status(500).send('[500]Something went wrong!');
+    res.status(500).send('[500] Internal Server Error');
 });
 
 /* ~Open Server ports~ */
