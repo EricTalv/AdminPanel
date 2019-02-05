@@ -10,8 +10,8 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var morgan = require('morgan');
 
-/// Routes and Configs
- var index = require('./routes/index');
+/// Routes and Configs;
+var index = './routes/index';
 require('./config/passport')(passport) // pass passport for configuration;
 
 // Set app Listening port 
@@ -47,10 +47,6 @@ app.use(bodyParser.json());
 // Parse cookie data
 app.use(cookieParser());
 
-// Initialize Passport
-app.use(passport.initialize());
-app.use(passport.session());
-
 /* ~Passport And Session Properties~ */
 // Session 
 app.use(session({
@@ -66,6 +62,9 @@ app.use(session({
     }
 }));
 
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // flash messages
 app.use(flash());

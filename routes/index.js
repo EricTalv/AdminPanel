@@ -1,5 +1,6 @@
 module.exports = function(app, passport) {
 
+
     // GET The HOME-page
     app.get('/', function(req, res, next) {
         res.render('index', {
@@ -16,7 +17,8 @@ module.exports = function(app, passport) {
             flash_message:  req.flash('loginMessage')
         });
     });
-    
+
+
     // Process the login form
     app.post('/login', passport.authenticate('local', {
     	successRedirect: '/admin',
@@ -44,5 +46,5 @@ module.exports = function(app, passport) {
 // route middleware
 function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated()) { return next(); }
-	res.status(403).send('[403] Forbidden');
+    res.status(403).send('[403] Forbidden');
 }

@@ -24,7 +24,7 @@ module.exports = function(passport) {
     // serializeUser drtermines which data of the user obj should be stored to the session
     passport.serializeUser(function(user, done) {
     	// We save the user.id in the session 
-        done(null, user.id);
+        done(null, user.ID);
     });
 
     passport.deserializeUser(function(id, done) {
