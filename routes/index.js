@@ -28,10 +28,10 @@ module.exports = function(app, passport) {
      	res.redirect('/');
      });
 
-    app.get('/success', isLoggedIn, function (req, res) {
-    	res.render('/success', {
-    		title: 'Success',
-    		message: 'Success page'
+    app.get('/admin', isLoggedIn, function (req, res) {
+    	res.render('/admin', {
+    		title: 'Admin',
+    		message: 'Admin page'
     	});
     });
 
