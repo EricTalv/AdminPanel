@@ -28,7 +28,7 @@ module.exports = function(passport) {
     passport.deserializeUser(function(id, done) {
         connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
             function(err, rows) {
-                done(err, rows[0]);
+                done(err, rows[0]);          
             });
     });
 
