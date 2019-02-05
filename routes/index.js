@@ -17,6 +17,11 @@ module.exports = function(app, passport) {
         });
     });
 
+    // GET The UNAUTH-page
+    app.get('/unauthorized', function(req, res, next) {
+        res.render('unauthorized');
+    });
+
     // Process the login form
     app.post('/login', passport.authenticate('local', {
     	successRedirect: '/admin',
@@ -44,5 +49,5 @@ module.exports = function(app, passport) {
 // route middleware
 function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated()) { return next(); }
-	res.redirect('/unauthorized');
+	res.status(403).send({ error: "boo" });
 }
