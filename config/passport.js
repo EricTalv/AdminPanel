@@ -26,10 +26,13 @@ module.exports = function(passport) {
     });
 
     passport.deserializeUser(function(id, done) {
-        connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
-            function(err, rows) {
-                done(err, rows[0]);          
-            });
+    	User.findById(id, function (err, user) {
+    		done(err, user);
+    	})
+        // connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
+        //     function(err, rows) {
+        //         done(err, rows[0]);          
+        //     });
     });
 
     passport.use('local', new LocalStrategy({
