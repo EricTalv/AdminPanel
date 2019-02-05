@@ -24,15 +24,15 @@ module.exports = function(passport) {
     // serializeUser drtermines which data of the user obj should be stored to the session
     passport.serializeUser(function(user, done) {
     	// We save the user.id in the session 
-        done(null, user);
+        done(null, user.id);
     });
 
-    passport.deserializeUser(function(user, done) {
-    	done(null, user);
-        // connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
-        //     function(err, rows) {
-        //         done(err, rows[0]);          
-        //     });
+    passport.deserializeUser(function(id, done) {
+    	//done(null, user);
+        connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
+            function(err, rows) {
+                done(err, rows[0]);          
+            });
     });
 
     passport.use('local', new LocalStrategy({

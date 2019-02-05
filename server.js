@@ -47,6 +47,10 @@ app.use(bodyParser.json());
 // Parse cookie data
 app.use(cookieParser());
 
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 /* ~Passport And Session Properties~ */
 // Session 
 app.use(session({
@@ -62,9 +66,6 @@ app.use(session({
     }
 }));
 
-// Initialize Passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 // flash messages
 app.use(flash());
