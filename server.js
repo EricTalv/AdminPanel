@@ -12,10 +12,6 @@ var morgan = require('morgan');
 
 /// Routes and Configs
  var index = require('./routes/index');
-// var database = require('./models');
-// var user = require('./routes/user');
-// var home = require('./routes/home');
-// var application = require('./routes/application');
 require('./config/passport')(passport) // pass passport for configuration;
 
 // Set app Listening port 
@@ -73,10 +69,8 @@ app.use(passport.session());
 // flash messages
 app.use(flash());
 
-// Route to homepage 
-// app.use('/', index);
-
-require('./routes/index')(app, passport); // pass passport for configuration
+// Route
+require('./routes/index')(app, passport); // pass app&passport for configuration
 
 // Error Handeling
 app.use(function(error, req, res, next) {
