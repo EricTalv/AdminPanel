@@ -28,6 +28,6 @@ Localhost will listen at localhost:3000
 
 # Sitemap
 
-`/admin` <- Depends if your session is authorized
-`/login` <- Can login from here, depends on data from database
-` /    ` <- index as in home page 
++ `/admin` <- Depends if your session is authorized
++ `/login` <- Can login from here, depends on data from database
++ ` /    ` <- index as in home page 
