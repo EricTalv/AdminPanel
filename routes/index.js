@@ -31,14 +31,14 @@ module.exports = function(app, passport) {
      	} else {
      		req.session.cookie.expires = false;
      	}
-     	
+
      	res.redirect('/');
 
      });
 
     app.get('/admin', isLoggedIn, function (req, res) {
     	res.render('/admin', {
-    		title: 'Admin',
+    		title: req.user,
     		message: 'Admin page'
     	});
     });
