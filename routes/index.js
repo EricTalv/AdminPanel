@@ -1,7 +1,7 @@
 module.exports = function(app, passport) {
 
     // GET The HOME-page
-    app.get('/', function(req, res, next) {
+    app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
             message: 'Index Page'
@@ -9,7 +9,7 @@ module.exports = function(app, passport) {
     });
 
     // GET The LOGIN-page
-    app.get('/login', function(req, res, next) {
+    app.get('/login', function(req, res) {
         res.render('login', {
             title: 'Login',
             message: 'Login Page',
@@ -25,7 +25,15 @@ module.exports = function(app, passport) {
     }),
     function (req, res) {
      	console.log('Hi');
+
+     	if (req.body.remember) {
+     		req.session.cookie.maxAge = 1000*60*3;
+     	} else {
+     		req.session.cookie.expires = false;
+     	}
+     	
      	res.redirect('/');
+
      });
 
     app.get('/admin', isLoggedIn, function (req, res) {
@@ -43,7 +51,7 @@ module.exports = function(app, passport) {
 
 // route middleware
 function isLoggedIn(req, res, next) {
-	if (req.isAuthenticated()) { return next(); }
+	if (req.isAuthenticated()) { return next(); } //return next();  }
     res.status(403).send('[403] Forbidden');
 }
 
