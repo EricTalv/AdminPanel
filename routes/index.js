@@ -36,9 +36,9 @@ module.exports = function(app, passport) {
 
      });
 
-    app.get('/admin', isLoggedIn, function (req, res) {
-    	res.render('/admin', {
-    		title: req.user,
+    app.get('/admin', isLoggedIn ,function (req, res) {
+    	res.render('admin', {
+    		title: req.user.ID,
     		message: 'Admin page'
     	});
     });
