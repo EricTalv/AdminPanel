@@ -7,7 +7,7 @@ simple CRUD rules.
 
 # Pre-requisites
 
-Run a xampp Apache + MySQL servers 
+Run a xampp *Apache + MySQL* servers 
 
 You will need to create your own DataBase on
 localhost/phpmyadmin or just create MySQL script
