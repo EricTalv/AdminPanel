@@ -1,12 +1,25 @@
 # AdminPanel
 
-Websites are always pretty and nice on the front-end
-but when it comes to how we write the websites
-Front-end structure, it is not as pretty.
+AdminPanel testing environment.
+This is a project to study how websites utilize adminPanels 
+and how We can manipulate a client-side websites elements with
+simple CRUD rules.
 
-Thus we need a system to to easily add posts and
-work on our "prettier" front-end side, that system
-is an AdminPanel.
+# Pre-requisites
 
-To completely understand how we can create something like that
-I'll start off on a barebones website, and I'll build up from there.
+Run a xampp Apache + MySQL servers 
+
+You will need to create your own DataBase on
+localhost/phpmyadmin or just create MySQL script
+and change config/database.js to your database.
+
+*NOTICE:* _This is not for production use,_ 
+password and name encryption is not yet implemented.
+
+# Available Scripts
+
+Root directory is `/AdminPanel`
+
+To run **localhost** just run command:
+
+`npm start` OR `node server.js`
