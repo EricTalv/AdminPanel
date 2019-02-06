@@ -23,3 +23,11 @@ Root directory is `/AdminPanel`
 To run **localhost** just run command:
 
 `npm start` OR `node server.js`
+
+Localhost will listen at localhost:3000
+
+# Sitemap
+
+`/admin` <- Depends if your session is authorized
+`/login` <- Can login from here, depends on data from database
+` /    ` <- index as in home page 
