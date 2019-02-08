@@ -8,5 +8,5 @@ var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.content_db);
 
 module.exports = function(admin) {
-	console.log('test');
+	console.log('Inside');
 }
