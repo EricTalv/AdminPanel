@@ -8,8 +8,15 @@ var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.content_db);
 
 module.exports = function(admin) {
+
 	// Read all the data from the database
-    function (data) {
-        connection.query("SELECT * FROM content_data");
+    function (req, done) {
+        connection.query("SELECT * FROM content_data" function (err, rows) {
+        	if (err) {
+        		return done(err);
+        	} else {
+        		return done(rows[0]);
+        	}
+        });
     }
 }

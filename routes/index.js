@@ -10,7 +10,7 @@ module.exports = function(app, passport, admin) {
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: req.user.username
+            message: 'Index page'
         });
     });
 
