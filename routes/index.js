@@ -1,3 +1,9 @@
+/*
+
+General Sitemap Routing
+
+*/
+
 module.exports = function(app, passport) {
 
     // GET The HOME-page

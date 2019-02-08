@@ -1,7 +1,12 @@
-/// Require modules
+/*
+
+Server Setup
+
+*/
+
+/// Require modules-
 var express = require('express');
 var path = require('path');
-//var http = require('http');
 var mysql = require('mysql');
 var passport = require('passport');
 var bodyParser = require('body-parser');

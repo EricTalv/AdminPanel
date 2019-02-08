@@ -1,6 +1,6 @@
 /*
 
-Passport and database connections
+Passport Authentication Database Connections
 
 */
 
