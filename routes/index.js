@@ -10,7 +10,7 @@ module.exports = function(app, passport, admin) {
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: 'Index Page'
+            message: req.user.username
         });
     });
 
@@ -45,7 +45,7 @@ module.exports = function(app, passport, admin) {
     app.get('/admin', isLoggedIn ,function (req, res) {
     	res.render('admin', {
     		title: req.user.username,
-    		message: req.name 
+    		message: 'welcome to the admin board' 
     		
     	});
     });
