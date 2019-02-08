@@ -13,7 +13,7 @@ module.exports = {
         'password': ''
     },
 	'admin_db': 'admin_auth',
-    'admin_DataTable': 'admin_data',
+    'admin_table': 'admin_data',
     'content_db' : 'content_db',
-    'content_DataTable' : 'content_data'
+    'content_table' : 'content_data'
 };

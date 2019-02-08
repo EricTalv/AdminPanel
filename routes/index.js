@@ -62,8 +62,3 @@ function isLoggedIn(req, res, next) {
     res.status(403).send('[403] Forbidden');
 }
 
-function ATest(name) {
-	for (var i = 10; i >= 10; i++) {
-			return '<b>' + name + i + '<b/>'
-		}
-}

@@ -29,7 +29,7 @@ module.exports = function(passport) {
 
     passport.deserializeUser(function(id, done) {
     	//done(null, user);
-        connection.query("SELECT * FROM admin_DataTable WHERE id = ? " ,[id],
+        connection.query("SELECT * FROM admin_data WHERE id = ? " ,[id],
             function(err, rows) {
                 done(err, rows[0]);          
             });
@@ -41,7 +41,7 @@ module.exports = function(passport) {
     	passReqToCallback: true 	
     },
     function(req, username, password, done) {
-        connection.query("SELECT * FROM admin_DataTable WHERE username = ? ",[username],
+        connection.query("SELECT * FROM admin_data WHERE username = ? ",[username],
             function(err, rows) {
                 if (err) {
                     return done(err);
