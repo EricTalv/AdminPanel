@@ -7,6 +7,6 @@ var connection = mysql.createConnection(dbconfig.connection);
 // Set DataBase To use
 connection.query('USE ' + dbconfig.content_db);
 
-module.exports = function(admin) {
-	console.log('Inside');
+module.exports = function(controller) {
+ 	return "HI";
 }

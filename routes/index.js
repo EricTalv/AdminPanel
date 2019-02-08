@@ -4,13 +4,13 @@ General Sitemap Routing
 
 */
 
-module.exports = function(app, passport, admin) {
+module.exports = function(app, passport, controller) {
 
     // GET The HOME-page
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: 'Index page'
+            message: console.log(controller)
         });
     });
 
@@ -45,7 +45,7 @@ module.exports = function(app, passport, admin) {
     app.get('/admin', isLoggedIn ,function (req, res) {
     	res.render('admin', {
     		title: req.user.username,
-    		message: 'welcome to the admin board' 
+    		message: 'nothing'
     		
     	});
     });
