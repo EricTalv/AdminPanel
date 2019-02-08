@@ -67,3 +67,4 @@ The easier way to do this is to do it simply.
 so if we would have 3 different p-paragraphs, we could make only 2 accessible by the
 admin-panel editor, leaving the third one static.
 
+**Wait**, but why would I want to change things like font-family or element positioning? This is all maintained by the css flow and design, _i just want to manipulate the content of my website_ 
