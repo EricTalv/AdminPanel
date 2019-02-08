@@ -12,6 +12,6 @@ module.exports = {
         'user': 'root',
         'password': ''
     },
-	'database': 'admin_auth',
-    'users_table': 'admin_data'
+	'admin_database': 'admin_auth',
+    'admin_DataTable': 'admin_data'
 };
