@@ -14,6 +14,5 @@ module.exports = {
     },
 	'admin_db': 'admin_auth',
     'admin_table': 'admin_data',
-    'content_db' : 'content_db',
-    'content_table' : 'content_data'
+    'content_table' : 'page'
 };
