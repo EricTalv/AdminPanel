@@ -45,7 +45,8 @@ module.exports = function(app, passport) {
     app.get('/admin', isLoggedIn ,function (req, res) {
     	res.render('admin', {
     		title: req.user.username,
-    		message: 'Admin page'
+    		message: ATest(req.user.username) 
+    		
     	});
     });
 
@@ -61,3 +62,8 @@ function isLoggedIn(req, res, next) {
     res.status(403).send('[403] Forbidden');
 }
 
+function ATest(name) {
+	for (var i = 10; i >= 10; i++) {
+			return '<b>' + name + i + '<b/>'
+		}
+}
