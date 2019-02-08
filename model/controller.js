@@ -8,8 +8,6 @@ var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.content_db);
 
 module.exports = function(admin) {
-	// Read the data from the database
-    function ReadData() {
-        connection.query("SELECT * FROM content_data");
-    }
+	// Read all the data from the database
+    connection.query("SELECT * FROM content_data");
 }
