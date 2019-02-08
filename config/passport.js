@@ -6,18 +6,18 @@ Passport Authentication Database Connections
 
 /* ~Require Modules~*/
 var LocalStrategy = require('passport-local').Strategy; // Load passport strategy
-var mysql = require('mysql');
+var mysql = require('mysql'); // MySQL
 // var bcrypt = require('bcrypt-nodejs');
-var dbconfig = require('./database');
+var dbconfig = require('./database'); // Load database-configuration
 
 /* ~MySQL Properties~ */
 //Create connection with MYSQL
-var connection = mysql.createConnection(dbconfig.connection);
+var connection = mysql.createConnection(dbconfig.connection); // Establish connection with database
 
 // Set database
-connection.query('USE ' + dbconfig.database);
+connection.query('USE ' + dbconfig.database); // Use database
 
-// Expose to our server
+// Expose database to our server
 module.exports = function(passport) {
     /* Passport Session Setup */
 
