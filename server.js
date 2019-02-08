@@ -17,7 +17,7 @@ var morgan = require('morgan');
 
 /// Routes and Configs;
 var index = './routes/index';
-require('./config/passport')(passport) // pass passport for configuration;
+require('./model/passport')(passport) // pass passport for configuration;
 
 // Set app Listening port 
 var port = process.env.PORT || 3000;
