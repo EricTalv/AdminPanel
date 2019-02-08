@@ -8,7 +8,7 @@ Passport Authentication Database Connections
 var LocalStrategy = require('passport-local').Strategy; // Load passport strategy
 var mysql = require('mysql'); // MySQL
 // var bcrypt = require('bcrypt-nodejs');
-var dbconfig = require('./database'); // Load database-configuration
+var dbconfig = require('./config/database'); // Load database-configuration
 
 /* ~MySQL Properties~ */
 //Create connection with MYSQL
