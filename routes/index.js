@@ -10,7 +10,7 @@ module.exports = function(app, passport, controller) {
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: console.log(controller.read())
+            message: console.log(req.controller.read())
         });
     });
 

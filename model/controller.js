@@ -14,11 +14,11 @@ var connection = mysql.createConnection(dbconfig.connection); // Establish conne
 
 connection.query('USE ' + dbconfig.admin_db);
 
-module.exports = {
+module.exports = {	
     read: function() {
         connection.query('SELECT * FROM page', function(error, results, fields) {
-            if (error) throw error;            
-            return 'Your results: ' + results[0];     
+            if (error) throw error;
+	        return results[0];         
         });        
     }
 };
