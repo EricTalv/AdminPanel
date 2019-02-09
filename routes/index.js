@@ -45,7 +45,7 @@ module.exports = function(app, passport, controller) {
     app.get('/admin', isLoggedIn ,function (req, res) {
     	res.render('admin', {
     		title: req.user.username,
-    		message: 'admin panel'
+    		message: controller.hello
     		
     	});
     });
