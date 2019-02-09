@@ -16,9 +16,16 @@ connection.query('USE ' + dbconfig.admin_db);
 
 module.exports = {
     read: function() {
-        connection.query('SELECT * FROM page', function(error, results, fields) {
-            if (error) throw error;
-     	    return results[0];     	    
+        function readQuery(result) {
+            var result;
+            connection.query('SELECT * FROM page', function(error, results, fields) {
+                if (error) throw error;
+                success: callback;
+            });
+        }
+        readQuery(function(result) {
+            return result;
         });
     }
+
 };

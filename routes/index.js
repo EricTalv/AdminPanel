@@ -6,13 +6,11 @@ General Sitemap Routing
 
 module.exports = function(app, passport, controller) {
 
-	var result = controller.read();
-	
     // GET The HOME-page
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: console.log(result),
+            message: console.log(controller.read()),
             message2: 'sup'
         });
     });
