@@ -12,4 +12,13 @@ var dbconfig = require('./config/database'); // Load database-configuration
 //Create connection with MYSQL
 var connection = mysql.createConnection(dbconfig.connection); // Establish connection with database
 
-module.exports.msg = "hello";
+connection.query('USE ' + dbconfig.admin_db);
+
+module.exports = {
+    read: function() {
+        connection.query('SELECT * FROM page', function(error, results, fields) {
+            if (error) throw error;            
+            return 'Your results: ' + results[0];     
+        });        
+    }
+};
