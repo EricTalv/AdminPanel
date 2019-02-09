@@ -20,13 +20,6 @@ connection.query('USE ' + dbconfig.admin_db); // Use database
 // Expose database to our server
 module.exports = function(passport) {
     /* Passport Session Setup */
-    getUser: (admin) => {
-        connection.query('SELECT * FROM page', function (error, results, fields) {
-            if (error) throw error;
-            console.log('The result is: ', results[0].id);
-            if (admin) { admin(results); }
-        });
-    }
 
 
     // serializeUser drtermines which data of the user obj should be stored to the session
