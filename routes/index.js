@@ -6,14 +6,17 @@ General Sitemap Routing
 
 module.exports = function(app, passport, controller) {
 
+	var result = controller.read();
+	
     // GET The HOME-page
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: controller.read()
+            message: console.log(result),
+            message2: 'sup'
         });
     });
-
+    	//JSON.stringify(result, null, 4)
     // GET The LOGIN-page
     app.get('/login', function(req, res) {
         res.render('login', {
