@@ -12,6 +12,4 @@ var dbconfig = require('./config/database'); // Load database-configuration
 //Create connection with MYSQL
 var connection = mysql.createConnection(dbconfig.connection); // Establish connection with database
 
-module.exports = function (controller) {
-	
-}
+module.exports.Hello = "Hello";

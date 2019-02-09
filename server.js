@@ -15,6 +15,8 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var morgan = require('morgan');
 
+var controller = require('./model/controller');
+
 /// Routes and Configs;
 var index = './routes/index';
 require('./model/passport')(passport) // pass passport for configuration
@@ -75,7 +77,7 @@ app.use(passport.session());
 app.use(flash());
 
 // Route
-require('./routes/index')(app, passport); // pass app&passport for configuration
+require('./routes/index')(app, passport, controller); // pass app&passport for configuration
 
 // Error Handeling
 app.use(function(error, req, res, next) {
