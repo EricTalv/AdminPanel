@@ -10,7 +10,7 @@ module.exports = function(app, passport, controller) {
     app.get('/', function(req, res) {
         res.render('index', {
             title: 'Index',
-            message: 'aa'
+            message: controller.msg
         });
     });
 
@@ -45,7 +45,7 @@ module.exports = function(app, passport, controller) {
     app.get('/admin', isLoggedIn ,function (req, res) {
     	res.render('admin', {
     		title: req.user.username,
-    		message: controller.hello
+    		message: ''
     		
     	});
     });
