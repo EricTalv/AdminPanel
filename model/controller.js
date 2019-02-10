@@ -15,13 +15,12 @@ var connection = mysql.createConnection(dbconfig.connection); // Establish conne
 connection.query('USE ' + dbconfig.admin_db);
 
 module.exports = {
-    read: function () {
+    read: function (req, res) {
 
     	var readQuery;    	
-    	function onComplete(query_results){
-    		//readQuery = query_results;
+    	function onComplete(query_results){//readQuery = query_results;
     		readQuery = query_results;
-
+    		res.send(readQuery);
     		console.log('Query Trasnferred');
     	}
 
