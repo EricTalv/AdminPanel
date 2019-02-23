@@ -18,6 +18,7 @@ connection.query('USE ' + dbconfig.database);
 module.exports = {
         read: function() {
 
+            var readQuery;
             // Declare Query Function
             function query(whenDone) {
                 // Create query            
@@ -29,6 +30,11 @@ module.exports = {
                 });
             };
 
+            function onComplete(query_results) {
+                readQuery = query_results;
+                return readQuery;
+            }
+
             // What to do after Promise
             query(onComplete).then(function(data) {
                 //Return the data
@@ -38,6 +44,7 @@ module.exports = {
                     throw (err)
                 });
 
+            query(onComplete);
                 // var readQuery;    	
                 // function onComplete(query_results){
                 // 	readQuery = query_results;
