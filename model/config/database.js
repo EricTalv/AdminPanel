@@ -12,7 +12,7 @@ module.exports = {
         'user': 'root',
         'password': ''
     },
-	'admin_db': 'admin_db',
+	'database': 'admin_db',
     'admin_table': 'admin_data',
-    'content_table' : 'page'
+    'content_table' : 'content_data'
 };

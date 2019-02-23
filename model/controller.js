@@ -21,7 +21,7 @@ module.exports = {
             // Declare Query Function
             function query(whenDone) {
                 // Create query            
-                connection.query('SELECT * FROM page', function(error, results, fields) {
+                connection.query('SELECT * FROM content_data', function(error, results, fields) {
                     // Check for errors
                     if (error) return Promise.reject(err);
                     // Return Promise Results
