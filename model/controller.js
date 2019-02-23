@@ -16,23 +16,44 @@ var connection = mysql.createConnection(dbconfig.connection); // Establish conne
 connection.query('USE ' + dbconfig.admin_db);
 
 module.exports = {
-    read: function () {
-    	var readQuery;    	
-    	function onComplete(query_results){
-    		readQuery = query_results;
-    		res.send(readQuery);
-    		console.log('Query Trasnferred');
-    	}
+        read: function() {
 
-    	function query(whenDone){
-    		var query_results; 
-            connection.query('SELECT * FROM page', function(error, results, fields) {
-                if (error) throw error;
-                results.forEach((results) => {
-                    whenDone(results);
+            // Declare Query Function
+            function query(whenDone) {
+                // Create query            
+                connection.query('SELECT * FROM page', function(error, results, fields) {
+                    // Check for errors
+                    if (error) return Promise.reject(err);
+                    // Return Promise Results
+                    return Promise.resolve(results);
                 });
-            });    		
-    	};
-    	query(onComplete);
-    }
-};
+            };  
+
+            // What to do after Promise
+            query(onComplete).then(function(data) {
+                //Return the data
+                return data
+            // Catch any errors
+            }).catch(function(err) {
+                    throw (err
+                    };)
+
+                // var readQuery;    	
+                // function onComplete(query_results){
+                // 	readQuery = query_results;
+                // 	res.send(readQuery);
+                // 	console.log('Query Trasnferred');
+                // }
+
+                // function query(whenDone){
+                // 	var query_results; 
+                //        connection.query('SELECT * FROM page', function(error, results, fields) {
+                //            if (error) throw error;
+                //            results.forEach((results) => {
+                //                whenDone(results);
+                //            });
+                //        });    		
+                // };
+                // query(onComplete);
+            }
+        };
