@@ -27,16 +27,16 @@ module.exports = {
                     // Return Promise Results
                     return Promise.resolve(results);
                 });
-            };  
+            };
 
             // What to do after Promise
             query(onComplete).then(function(data) {
                 //Return the data
                 return data
-            // Catch any errors
+                    // Catch any errors
             }).catch(function(err) {
-                    throw (err
-                    };)
+                    throw (err)
+                });
 
                 // var readQuery;    	
                 // function onComplete(query_results){
