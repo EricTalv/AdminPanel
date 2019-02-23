@@ -16,51 +16,25 @@ var connection = mysql.createConnection(dbconfig.connection); // Establish conne
 connection.query('USE ' + dbconfig.database);
 
 module.exports = {
-        read: function() {
+    read: function() {
 
-            var readQuery;
-            // Declare Query Function
-            function query(whenDone) {
-                // Create query            
-                connection.query('SELECT * FROM content_data', function(error, results, fields) {
-                    // Check for errors
-                    if (error) return Promise.reject(err);
-                    // Return Promise Results
-                    return Promise.resolve(results);
+        var readQuery;
+        function onComplete(query_results) {
+            readQuery = query_results;
+            
+            console.log('Query Trasnferred');
+            console.log(readQuery);
+        }
+
+        function query(whenDone) {
+            var query_results;
+            connection.query('SELECT * FROM page', function(error, results, fields) {
+                if (error) throw error;
+                results.forEach((results) => {
+                    whenDone(results);
                 });
-            };
-
-            function onComplete(query_results) {
-                readQuery = query_results;
-                return readQuery;
-            }
-
-            // What to do after Promise
-            query(onComplete).then(function(data) {
-                //Return the data
-                return data
-                    // Catch any errors
-            }).catch(function(err) {
-                    throw (err)
-                });
-
-            query(onComplete);
-                // var readQuery;    	
-                // function onComplete(query_results){
-                // 	readQuery = query_results;
-                // 	res.send(readQuery);
-                // 	console.log('Query Trasnferred');
-                // }
-
-                // function query(whenDone){
-                // 	var query_results; 
-                //        connection.query('SELECT * FROM page', function(error, results, fields) {
-                //            if (error) throw error;
-                //            results.forEach((results) => {
-                //                whenDone(results);
-                //            });
-                //        });    		
-                // };
-                // query(onComplete);
-            }
+            });
         };
+        query(onComplete);
+    }
+};
