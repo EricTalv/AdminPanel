@@ -28,7 +28,7 @@ module.exports = {
 
         function query(whenDone) {
             var query_results;
-            connection.query('SELECT * FROM page', function(error, results, fields) {
+            connection.query('SELECT * FROM content_data', function(error, results, fields) {
                 if (error) throw error;
                 results.forEach((results) => {
                     whenDone(results);
