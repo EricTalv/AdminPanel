@@ -13,7 +13,7 @@ var dbconfig = require('./config/database'); // Load database-configuration
 var connection = mysql.createConnection(dbconfig.connection); // Establish connection with database
 
 // Use database 
-connection.query('USE ' + dbconfig.admin_db);
+connection.query('USE ' + dbconfig.database);
 
 module.exports = {
         read: function() {
