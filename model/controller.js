@@ -21,7 +21,6 @@ module.exports = {
         var readQuery;
         function onComplete(query_results) {
             readQuery = query_results;
-            
             console.log('Query Trasnferred');
             console.log(readQuery);
         }
