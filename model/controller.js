@@ -17,7 +17,7 @@ connection.query('USE ' + dbconfig.admin_db);
 
 module.exports = {
     read: function (req, res) {
-
+        
     	var readQuery;    	
     	function onComplete(query_results){
     		readQuery = query_results;
