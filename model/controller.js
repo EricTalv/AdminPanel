@@ -16,9 +16,7 @@ var connection = mysql.createConnection(dbconfig.connection); // Establish conne
 connection.query('USE ' + dbconfig.database);
 
 module.exports = {
-    read: function(res) {
-
-
+    read: function() {
         function createQuery() {
             new Promise((resolve, reject) => {
                     connection.query('SELECT * FROM content_data', (error, results, fields) => {
