@@ -18,22 +18,20 @@ connection.query('USE ' + dbconfig.database);
 module.exports = {
     read: function() {
 
+
         function createQuery() {
-            return new Promise((resolve, reject) => {
+            new Promise((resolve, reject) => {
                 connection.query('SELECT * FROM content_data', (error, results, fields) => {
                     // Check for QUERY errors
                     if (error) return reject(error);
-                    results.forEach((data) => {
-                        return resolve(data)
-                    });
+                    else return resolve(results);
                 });
             });
         }
-        
+
         createQuery()
             .then((data) => {
-                console.log(data);
-                return data;
+                res.status(200).json(data);
             })
             .catch((err) => {
                 console.log(err);
