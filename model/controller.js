@@ -17,7 +17,6 @@ connection.query('USE ' + dbconfig.database);
 
 module.exports = {
     read: function() {
-
         // ///Promises   
         // // Declare query function
         // query(function sendQuery(){
@@ -39,26 +38,30 @@ module.exports = {
         // })
 
 
-        //CALLBACK HELL   
-        var readQuery;
+        // CallBack   
+    
+
         function onComplete(query_results) {
-            readQuery = query_results;
-            console.log('Query Trasnferred');
-            console.log(readQuery);
+            var readQuery = query_results;
+            return readQuery;
         }
 
         // Get Query Data
-        function GetQueryData(whenDone) {
+        function CreateQuery(whenDone, CallBack) {
             // Send query
             connection.query('SELECT * FROM content_data', function(error, results, fields) {
                 // Check for QUERY errors
                 if (error) throw error;
-                
+                // Send data to CallBack
                 results.forEach((results) => {
-                    whenDone(results);
+                    CallBack(results);
                 });
             });
         };
-        GetQueryData(onComplete);
+    
+       CreateQuery(onComplete, function(results){
+            console.log(results);
+       });
+
     }
 };
