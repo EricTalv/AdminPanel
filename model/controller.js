@@ -18,10 +18,22 @@ connection.query('USE ' + dbconfig.database);
 module.exports = {
     read: function() {
 
+        // Declare query function
         query(function sendQuery(){
+            // Send query to Database
             connection.query('SELECT * FROM content_data', function(error, results, fields) {
+                // Catch any errors from query
                 if (error) return Promise.reject(error);
+                // Return succesful results
                 return Promise.resolve(results);
+            })
+            // Log that data
+            .then(function(data){
+                console.log(data);
+            })
+            // Catch any errors
+            .catch(function(error) {
+                console.log(error);
             })
         })
 
