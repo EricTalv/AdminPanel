@@ -17,37 +17,27 @@ connection.query('USE ' + dbconfig.database);
 
 module.exports = {
     read: function() {
-        // CallBack   
-        //  function onComplete(query_results) {
-        //      var readQuery = query_results;
-        //      return readQuery;
-        //  }
-
-        //  // Get Query Data
-        //  function CreateQuery(whenDone, CallBack) {
-        //      // Send query
-        //      connection.query('SELECT * FROM content_data', function(error, results, fields) {
-        //          // Check for QUERY errors
-        //          if (error) throw error;
-        //          // Send data to CallBack
-        //          results.forEach((results) => {
-        //              CallBack(results);
-        //          });
-        //      });
-        //  };
-
-        // CreateQuery(onComplete, function(results){
-        //      return results;
-        // });
-
 
         function createQuery() {
-            return new Promise((resolve,reject) => {
-                connection.query('SELECT * FROM content_data', function(error, results, fields) {
-                // Check for QUERY errors
-                if (error) return reject(error);
-                return resolve(results)
+            return new Promise((resolve, reject) => {
+                connection.query('SELECT * FROM content_data', (error, results, fields) => {
+                    // Check for QUERY errors
+                    if (error) return reject(error);
+                    results.forEach((data) => {
+                        return resolve(data)
+                    });
+                });
             });
-        };
+        }
+        
+        createQuery()
+            .then((data) => {
+                console.log(data);
+                return data;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
-};
+
+}
