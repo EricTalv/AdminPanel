@@ -60,7 +60,7 @@ module.exports = {
         };
     
        CreateQuery(onComplete, function(results){
-            console.log(results);
+            return results;
        });
 
     }
