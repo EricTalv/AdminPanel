@@ -17,51 +17,37 @@ connection.query('USE ' + dbconfig.database);
 
 module.exports = {
     read: function() {
-        // ///Promises   
-        // // Declare query function
-        // query(function sendQuery(){
-        //     // Send query to Database
-        //     connection.query('SELECT * FROM content_data', function(error, results, fields) {
-        //         // Catch any errors from query
-        //         if (error) return Promise.reject(error);
-        //         // Return succesful results
-        //         return Promise.resolve(results);
-        //     })
-        //     // Log that data
-        //     .then(function(data){
-        //         console.log(data);
-        //     })
-        //     // Catch any errors
-        //     .catch(function(error) {
-        //         console.log(error)
-        //     })
-        // })
-
-
         // CallBack   
-    
+        //  function onComplete(query_results) {
+        //      var readQuery = query_results;
+        //      return readQuery;
+        //  }
 
-        function onComplete(query_results) {
-            var readQuery = query_results;
-            return readQuery;
-        }
+        //  // Get Query Data
+        //  function CreateQuery(whenDone, CallBack) {
+        //      // Send query
+        //      connection.query('SELECT * FROM content_data', function(error, results, fields) {
+        //          // Check for QUERY errors
+        //          if (error) throw error;
+        //          // Send data to CallBack
+        //          results.forEach((results) => {
+        //              CallBack(results);
+        //          });
+        //      });
+        //  };
 
-        // Get Query Data
-        function CreateQuery(whenDone, CallBack) {
-            // Send query
-            connection.query('SELECT * FROM content_data', function(error, results, fields) {
+        // CreateQuery(onComplete, function(results){
+        //      return results;
+        // });
+
+
+        function createQuery() {
+            return new Promise((resolve,reject) => {
+                connection.query('SELECT * FROM content_data', function(error, results, fields) {
                 // Check for QUERY errors
-                if (error) throw error;
-                // Send data to CallBack
-                results.forEach((results) => {
-                    CallBack(results);
-                });
+                if (error) return reject(error);
+                return resolve(results)
             });
         };
-    
-       CreateQuery(onComplete, function(results){
-            return results;
-       });
-
     }
 };
