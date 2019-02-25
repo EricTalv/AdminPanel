@@ -7,14 +7,29 @@ General Sitemap Routing
 module.exports = function(app, passport, controller) {
     // GET The HOME-page
     app.get('/', function(req, res) {
+        // *
+        // Return results to be rendered as a BULK
+        // ON/IF the promise is resolved
+        // *
 
-        
-        
-        res.render('index', {
-            title: 'Index',
-            message: controller.read(),
-            message2: 'sup'
-        });
+        controller
+            .GetDBData()
+            .then(results => {
+
+
+                res.render('index', {
+                    title: 'Index',
+                    message: results,
+                    message2: 'Data Fetched!'
+                });
+            })
+            .catch(error => {
+                res.status(500).json({
+                    message: 'failed to fetch data'
+                    message2: error
+                });
+            });
+
     });
     //JSON.stringify(result, null, 4)
     // GET The LOGIN-page
