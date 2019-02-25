@@ -7,6 +7,9 @@ General Sitemap Routing
 module.exports = function(app, passport, controller) {
     // GET The HOME-page
     app.get('/', function(req, res) {
+
+        
+        
         res.render('index', {
             title: 'Index',
             message: controller.read(),
