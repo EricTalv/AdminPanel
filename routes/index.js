@@ -29,8 +29,8 @@ module.exports = function(app, passport, controller) {
                     message2: error
                 });
             });
-
     });
+
     //JSON.stringify(result, null, 4)
     // GET The LOGIN-page
     app.get('/login', function(req, res) {
@@ -48,8 +48,6 @@ module.exports = function(app, passport, controller) {
             failureFlash: true
         }),
         function(req, res) {
-            console.log('Hi');
-
             if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
@@ -57,7 +55,6 @@ module.exports = function(app, passport, controller) {
             }
 
             res.redirect('/');
-
         });
 
     app.get('/admin', isLoggedIn, function(req, res) {
