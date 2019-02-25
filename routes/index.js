@@ -25,8 +25,8 @@ module.exports = function(app, passport, controller) {
             })
             .catch(error => {
                 res.status(500).json({
-                    message: 'failed to fetch data'
-                    message2: error
+                    title: 'failed to fetch data',
+                    message: error
                 });
             });
     });
