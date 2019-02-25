@@ -15,12 +15,12 @@ module.exports = function(app, passport, controller) {
         controller
             .GetDBData()
             .then(results => {
-
-
-                res.render('index', {
-                    title: 'Index',
-                    message: results,
-                    message2: 'Data Fetched!'
+                results.forEach((item) => {
+                    res.render('index', {
+                        title: 'Index',
+                        message: item.Title,
+                        message2: 'Data Fetched!'
+                    });
                 });
             })
             .catch(error => {
