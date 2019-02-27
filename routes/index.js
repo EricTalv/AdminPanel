@@ -14,7 +14,7 @@ module.exports = function(app, passport, controller) {
         controller
             .GetDBData()
             .then(results => {
-
+            	
                 res.render('index', {
                     title: 'Index',
                     message: results[3].Title,
@@ -24,7 +24,7 @@ module.exports = function(app, passport, controller) {
             .catch(error => {
                 res.status(500).json({
                 	title: "[500] Internal Server Error",
-                	error: error             
+                	error: console.log(error)             
                 })
             });
     });
