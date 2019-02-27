@@ -14,10 +14,14 @@ module.exports = function(app, passport, controller) {
         controller
             .GetDBData()
             .then(results => {
+            	var output = '';
+            	results.forEach((item) => {
+            		output += '${item.Title}'
+            	})
 
                 res.render('index', {
                     title: 'Index',
-                    message: res.send(results),
+                    message: output,
                     message2: 'Data Fetched!'
                 })
             })
