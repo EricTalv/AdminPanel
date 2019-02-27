@@ -17,12 +17,12 @@ module.exports = function(app, passport, controller) {
 
             	var db_data = [];
             	results.forEach((item) => {
-            		db_data.push(item);
+            		db_data.unshift(item);
             	})
 
                 res.render('index', {
                     title: 'Index',
-                    message: db_data[0],
+                    message: db_data,
                     message2: 'Data Fetched!'
                 })
             })
