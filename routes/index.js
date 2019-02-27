@@ -16,10 +16,7 @@ module.exports = function(app, passport, controller) {
             .then(results => {
             	var output = '';
             	results.forEach((item) => {
-            		output += {
-            			title: item.Title,
-            			content: item.Content
-            		}
+            		output += `item: ${item.Title}`;
             	})
 
                 res.render('index', {
