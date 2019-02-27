@@ -22,7 +22,7 @@ module.exports = function(app, passport, controller) {
 
                 res.render('index', {
                     title: 'Index',
-                    message: db.data[0],
+                    message: db_data[0],
                     message2: 'Data Fetched!'
                 })
             })
