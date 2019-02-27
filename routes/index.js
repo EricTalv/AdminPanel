@@ -23,7 +23,7 @@ module.exports = function(app, passport, controller) {
             })
             .catch(error => {
                 res.status(500).send({
-                	title: "An Error Has Occurred!",
+                	title: "[500] Internal Server Error",
                 	error: console.log(error)             
                 })
             });
