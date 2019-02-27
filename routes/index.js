@@ -14,19 +14,18 @@ module.exports = function(app, passport, controller) {
         controller
             .GetDBData()
             .then(results => {
-                results.forEach((item) => {
-                    res.render('index', {
-                        title: 'Index',
-                        message: res.json(item),
-                        message2: 'Data Fetched!'
-                    });
+
+                res.render('index', {
+                    title: 'Index',
+                    message: results[3].Title,
+                    message2: 'Data Fetched!'
                 });
             })
             .catch(error => {
                 res.status(500).send({
-                    title: 'failed to fetch data',
-                    message: error
-                });
+                	title: "An Error Has Occurred!",
+                	error: console.log(error)             
+                })
             });
     });
 
