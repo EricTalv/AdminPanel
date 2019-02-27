@@ -22,9 +22,9 @@ module.exports = function(app, passport, controller) {
                 });
             })
             .catch(error => {
-                res.status(500).send({
+                res.status(500).json({
                 	title: "[500] Internal Server Error",
-                	error: console.log(error)             
+                	error: error             
                 })
             });
     });
