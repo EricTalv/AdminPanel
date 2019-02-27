@@ -11,14 +11,13 @@ module.exports = function(app, passport, controller) {
         // Return results to be rendered as a BULK
         // ON/IF the promise is resolved
         // *
-
         controller
             .GetDBData()
             .then(results => {
                 results.forEach((item) => {
                     res.render('index', {
                         title: 'Index',
-                        message: item.Title,
+                        message: res.json(item),
                         message2: 'Data Fetched!'
                     });
                 });
