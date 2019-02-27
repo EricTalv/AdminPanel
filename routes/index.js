@@ -15,16 +15,19 @@ module.exports = function(app, passport, controller) {
             .GetDBData()
             .then(results => {
 
-            	var db_data = [];
-            	results.forEach((item) => {
-            		db_data.unshift(item);
-            	})
-
-                res.render('index', {
-                    title: 'Index',
-                    message: db_data.toString(),
-                    message2: 'Data Fetched!'
+                var db_data = [];
+                results.forEach((item) => {
+                    db_data.unshift(item);
                 })
+
+                db_data.forEach((item) => {
+                    res.render('index', {
+                        title: 'Index',
+                        message: res.json(item),
+                        message2: 'Data Fetched!'
+                    })
+                })
+
             })
             .catch(error => {
                 res.status(500).json({
