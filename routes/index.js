@@ -14,17 +14,18 @@ module.exports = function(app, passport, controller) {
         controller
             .GetDBData()
             .then(results => {
-            	
-                res.render('index', {
-                    title: 'Index',
-                    message: results[3].Title,
-                    message2: 'Data Fetched!'
-                });
+                results.forEach((item) => {
+                    res.render('index', {
+                        title: 'Index',
+                        message: item.Title,
+                        message2: 'Data Fetched!'
+                    });
+                })
             })
             .catch(error => {
                 res.status(500).json({
-                	title: "[500] Internal Server Error",
-                	error: console.log(error)             
+                    title: "[500] Internal Server Error",
+                    error: console.log(error)
                 })
             });
     });
