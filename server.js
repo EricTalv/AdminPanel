@@ -15,11 +15,11 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var morgan = require('morgan');
 
-var controller = require('./model/controller');
+var controller = require('./controllers/controller');
 
 /// Routes and Configs;
 var index = './routes/index';
-require('./model/passport')(passport) // pass passport for configuration
+require('./controllers/passport')(passport) // pass passport for configuration
 
 // Set app Listening port 
 var port = process.env.PORT || 3000;
