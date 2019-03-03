@@ -6,7 +6,7 @@ Controller Database Connections
 
 /* ~Require Modules~*/
 var mysql = require('mysql'); // MySQL
-var dbconfig = require('./config/database'); // Load database-configuration
+var dbconfig = require('./model/database'); // Load database-configuration
 
 /* ~MySQL Properties~ */
 // Create connection with MySQL
