@@ -8,26 +8,3 @@ body, html {
 	margin: 0;
 	height: 100%;
 }
-
-#wrapper {
-	height: 100%;
-}
-
-#content-box {
-	width: 100%;
-	height: 100%;
-}
-
-.post {
-	font-family: Consolas;
-
-	border: 1px solid #ccc;
-	border-radius: 5px;
-
-	width: 94%;
-	
-	margin: 5% auto;
-	padding: 10px;
-
-	background-color: #fff;	
-}
