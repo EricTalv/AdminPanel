@@ -5,10 +5,12 @@ html
     style
       include ../public/css/index.css
   body
-    h1= message
-    p= message2
+    h1 Index Page
 
-    ul
-    for item in results
-      li= item.Title
-      p= item.Content 
+    #wrapper
+      for item in results
+        .post
+          fieldset
+            legend
+              span ID|#{item.ID} #{item.Title} 
+            p.content #{item.Content}

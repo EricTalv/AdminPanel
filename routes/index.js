@@ -17,8 +17,8 @@ module.exports = function(app, passport, controller) {
 
                 res.render('index', {
                     title: 'Index',
-                    results: results,	
-                    message2: 'Data Fetched!'
+                    message: 'Index Page',
+                    results: results
                 })
             })
             .catch(error => {
