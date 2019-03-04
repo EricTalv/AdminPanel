@@ -14,7 +14,6 @@ module.exports = function(app, passport, controller) {
         controller
             .GetDBData()
             .then(results => {
-
                 res.render('index', {
                     title: 'Index',
                     message: 'Index Page',
