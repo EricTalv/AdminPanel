@@ -5,5 +5,22 @@ html
     style
         include ../public/css/admin.css
   body
-    h1= message
-    a(href="/logout") logout
+    h1 Admin Page
+	#master-wrapper
+	  // Admin Controls
+	  #controls-container
+	    fieldset
+	      legend CONTROLS
+	      label(for='title') Title:
+	      input#title(type='text')
+	      label(for='content') Content:
+	      input#content(type='text')
+	  // Content Preview
+	  #preview-container
+	    .post
+	      fieldset
+	        legend
+	          span ID|12
+	          |  First Post
+	        p.content
+	          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore sapiente doloribus vel ab dignissimos laboriosam quos maiores iusto neque distinctio.
