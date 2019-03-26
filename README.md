@@ -5,6 +5,12 @@ This is a project to study how websites utilize adminPanels
 and how We can manipulate a client-side websites elements with
 simple CRUD rules.
 
+-----
+
+Asof CCv3 being created
+The admin panel is going to become a lowend 
+framework Mindset, this concept is a work-in-progress
+
 # Pre-requisites
 
 Run a xampp *Apache + MySQL* servers 
